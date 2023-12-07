@@ -1,4 +1,15 @@
 const typeDefs = `
+    type Book {
+      _id: ID
+      authors: [String]
+      description: String
+      bookId: String
+      image: String
+      link: String
+      title: String
+    }
+
+
     type User {
         _id: ID
         username: String
@@ -7,15 +18,6 @@ const typeDefs = `
         savedBooks: [Book]!
     }
 
-    type Book {
-      _id: ID
-      authors: Array
-      description: String
-      bookId: String
-      image: String
-      link: String
-      title: String
-    }
 
     type Auth {
         token: ID!
@@ -31,6 +33,7 @@ const typeDefs = `
       login(email: String!, password: String!): Auth
       saveBook(bookId: ID!): Book
       deleteBook(bookId: ID!): Book
+
     }
   `;
   

@@ -3,15 +3,12 @@ const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    // profile: async (parent, { profileId }) => {
-    //     return User.findOne({ _id: profileId });
-    //   },
     me: async (parent, args, context) => {
       if (context.user) {
-        return Profile.findOne({ _id: context.user._id });
+        return User.findOne({ _id: context.user._id });
       }
       throw AuthenticationError;
-    }
+    },
   },
   Mutation: {
     createUser: async (parent, { username, email, password }) => {
@@ -59,7 +56,7 @@ const resolvers = {
         return updatedUser;
       }
       throw AuthenticationError;
-    },
+    }
   }
 };
 
